@@ -65,7 +65,6 @@ client.leaveChannel();
 ```
 
 <br>
-> channelId，uid格式：长度不超过40的字符串，支持的字符集范围: a-z,A-Z,0-9,_,-
 
 #### 更多内容请参考：[https://www.feiyucloud.com](https://www.feiyucloud.com)
 
