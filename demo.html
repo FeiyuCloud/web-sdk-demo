@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fycloud web demo</title>
+    <script type="text/javascript" src="https://cdn.feiyucloud.com/fysdk-3.0.0-min.js"></script>
+</head>
+
+<body>
+
+<div class="box_channel">
+    <p>
+        App Id: <input type="text" id="app_id"><br>
+        App Token: <input type="text" id="app_token"><br>
+    </p>
+    <p>
+        Channel Id: <input type="text" id="channel_id" maxlength="40"><br>
+    </p>
+    <p>
+        <button type="button" onclick="join()">Join Channel</button>
+        <button type="button" onclick="leave()">Leave Channel</button>
+    </p>
+</div>
+
+<audio class="hide" id="fyAudio" autoplay="autoplay" style="width:100%; height:100%; object-fit:inherit;"></audio>
+
+<script type="text/javascript">
+    var callbacks = {
+        onJoinChannelSuccess: function () {
+            console.log("demo, onJoinChannelSuccess");
+        },
+        onLeaveChannel: function () {
+            console.log("demo, onLeaveChannel");
+        }
+    };
+
+    function getRtcClient() {
+        var appId = document.getElementById("app_id").value;
+        var appToken = document.getElementById("app_token").value;
+        var audioElement = 'fyAudio';
+        return FYRtcEngine.createClient({
+            appId: appId,
+            appToken: appToken,
+            audioElement: audioElement
+        }, callbacks);
+    }
+
+    function join() {
+        var channelId = document.getElementById("channel_id").value;
+        if (!channelId) {
+            alert("channelId is empty");
+        } else {
+            var client = getRtcClient();
+            client.joinChannel(channelId, null, null);
+        }
+    }
+
+    function leave() {
+        var client = getRtcClient();
+        client.leaveChannel();
+    }
+</script>
+
+</body>
+
+</html>
