@@ -4,7 +4,9 @@
 > 推荐 Chrome 浏览器: v58 或以上版本
 
 <br>
+
 * #### 创建客户端（Client）对象
+
 使用 FYRtcEngine 对象创建客户端（Client）对象。
 
 ```javascript
