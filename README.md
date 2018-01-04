@@ -19,9 +19,9 @@ var client = FYRtcEngine.createClient(options, callbacks);
 示例代码：
 ```javascript
 var client = FYRtcEngine.createClient({
-    appId: testConfig.appId,
-    appToken: testConfig.appToken,
-    audioElement: testConfig.audioElement
+    appId: appId,
+    appToken: appToken,
+    audioElement: audioElement
 }, {
     onJoinChannelSuccess: function () {
         // 加入频道成功
